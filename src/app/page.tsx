@@ -5,6 +5,9 @@ import Link from "next/link";
 import { getAllCharacters } from "@/lib/characters";
 
 export default async function Page() {
+  if (!endpoint) {
+    return null;
+  }
   const data = await getAllCharacters();
 
   return (

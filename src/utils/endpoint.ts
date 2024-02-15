@@ -1,1 +1,1 @@
-export const endpoint = process.env.URL;
+export const endpoint = process.env.BASE_API_URL;
