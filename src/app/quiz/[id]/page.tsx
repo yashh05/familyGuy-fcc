@@ -1,9 +1,13 @@
 import { Answer } from "@/components/Answer";
 import { Container } from "@/components/Container";
 import { getQuizQuestion } from "@/lib/quiz";
+import { endpoint } from "@/utils/endpoint";
 import React from "react";
 
 const Page = async ({ params }: { params: { id: string } }) => {
+  if (!endpoint) {
+    return null;
+  }
   const { question } = await getQuizQuestion(params.id);
 
   return (

@@ -1,8 +1,12 @@
 import { Container } from "@/components/Container";
 import { getCharacterBySlug } from "@/lib/characters";
+import { endpoint } from "@/utils/endpoint";
 import Image from "next/image";
 
 export default async function Page({ params }: { params: { slug: string } }) {
+  if (!endpoint) {
+    return null;
+  }
   const data = await getCharacterBySlug(params.slug);
   const { character, character_quotes } = data;
 

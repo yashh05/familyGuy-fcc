@@ -7,6 +7,9 @@ import React from "react";
 import { TbArrowBigRightFilled } from "react-icons/tb";
 
 const Page = async () => {
+  if (!endpoint) {
+    return null;
+  }
   const data = await getRandomQuizQuestion();
 
   return (
