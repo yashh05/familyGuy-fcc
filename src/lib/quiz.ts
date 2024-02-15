@@ -4,7 +4,7 @@ interface QuizQuestion {
   question: { id: string; title: string; answers: string[] };
 }
 export async function getQuizQuestion(id: string): Promise<QuizQuestion> {
-  const data = await fetch(`${endpoint}/quiz/${id}`);
+  const data = await fetch(`${endpoint}/api/quiz/${id}`);
 
   if (!data.ok) {
     throw new Error("Failed to fetch data");
@@ -14,7 +14,9 @@ export async function getQuizQuestion(id: string): Promise<QuizQuestion> {
 }
 
 export async function getRandomQuizQuestion() {
-  const data = await fetch(`${endpoint}/quiz/random`, { cache: "no-store" });
+  const data = await fetch(`${endpoint}/api/quiz/random`, {
+    cache: "no-store",
+  });
 
   if (!data.ok) {
     throw new Error("Failed to fetch data");

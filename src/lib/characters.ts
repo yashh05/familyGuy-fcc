@@ -17,7 +17,7 @@ interface Character {
 }
 
 export async function getAllCharacters(): Promise<Character> {
-  const res = await fetch(`${endpoint}/character`);
+  const res = await fetch(`${endpoint}/api/character`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -34,7 +34,7 @@ interface quoteData {
 }
 
 export async function getCharacterBySlug(slug: string) {
-  const res = await fetch(`${endpoint}/character/${slug}`);
+  const res = await fetch(`${endpoint}/api/character/${slug}`);
   if (!res.ok) {
     throw new Error("Failed to fetch Data");
   }
